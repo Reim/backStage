@@ -1,0 +1,84 @@
+
+        <form action=""  method="post"  id="ajax_form_submit">  
+                <div class="addContent">
+                   <div class="inputBox">
+                       <label class="light">标题：</label>
+                       <input class="w300" type="text" name="name" placeholder="请输入标题" >
+                   </div>
+                   <div class="inputBox">
+                       <label class="light">选择：</label>
+                       <select class="w300" name="ads_select" id="">
+                           <option value="-1" disabled="disabled" selected>请选择...</option>
+                       </select>
+                   </div>
+                   <div class="inputBox">
+                       <label class="light">排序：</label>
+                       <input class="w100" type="text" name="order"  >
+                   </div>
+                   <div class="inputBox">
+                       <label class="light">单选：</label>
+                        <div class="radio_check_box cle fr">
+                            <div class="fl">
+                                <input class="hide" type="radio" name="adv_type" id="type1" value="1">
+                                <label class="radioStyle light" for="type1">单选</label>
+                            </div>
+                            <div class="fl">
+                                <input class="hide" type="radio" name="adv_type" id="type2" value="2" checked="">
+                                <label class="radioStyle light" for="type2">单选单选</label>
+                            </div>
+                            <div class="fl">
+                                <input class="hide" type="radio" name="adv_type" id="type3" value="3">
+                                <label class="radioStyle light" for="type3">单选单选单选</label>
+                            </div>          
+                        </div> 
+                   </div>
+                   <div class="inputBox">
+                       <label class="light">多选：</label>
+                        <div class="radio_check_box cle fr">
+                            <div class="fl">
+                                <input class="hide" type="checkbox" name="adv_type1" id="type_1" value="1">
+                                <label class="checkboxStyle light" for="type_1">多选</label>
+                            </div>
+                            <div class="fl">
+                                <input class="hide" type="checkbox" name="adv_type2" id="type_2" value="2">
+                                <label class="checkboxStyle light" for="type_2">多选多选多选多选</label>
+                            </div>      
+                            <div class="fl">
+                                <input class="hide" type="checkbox" name="adv_type3" id="type_3" value="3">
+                                <label class="checkboxStyle light" for="type_3">多选多选多选多选多选多选多选多选</label>
+                            </div>
+
+                        </div> 
+                   </div>
+                   <div class="inputBox">
+                       <label class="light">图片：</label>
+                       <input class="fileName w200 white" type="text" disabled="disabled" value="">
+                       <a class="file" href="javascript:;">浏览
+                           <input type="file" name="iconFile" id="fileSelect" onchange="fileChange(this)">
+                       </a>
+                       <!-- {{if isset($datas.filename) }}
+                           <a class="preview" href="{{$datas.filename}}" target="_blank"></a>
+                       {{/if}} -->
+                   </div>
+                   <div class="inputBox">
+                       <label class="light">描述：</label>
+                       <textarea class="w300" name="content" id="" placeholder="请输入内容"></textarea>
+                   </div>
+                </div>      
+                <div class="addConfirm inputBox cle">
+                    <input class="fr btn darkBlue-btn" type="submit" value="确定"> 
+                </div>
+            
+            </form>
+            
+            <script language="javascript">
+                $(function() {
+                  
+                    $(".btn").click(function() {
+                        ajaxpost('ajax_form_submit', '', '', 'onerror') ;
+                    })
+                  
+        
+                }) 
+            </script>
+            

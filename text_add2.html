@@ -1,0 +1,192 @@
+
+
+    <!-- 头部提取开始 -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>神居后台管理</title>
+        <link rel="stylesheet" type="text/css" href="./css/common/swiper-3.3.1.min.css">
+        <link rel="stylesheet" type="text/css" href="./css/common/animate.min.css">
+        <link rel="stylesheet" type="text/css" href="./css/common/bootstrapStyle.css" type="text/css">        
+        <link rel="stylesheet" type="text/css" href="./js/common/dialog.css" type="text/css">   
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        
+        <script type="text/javascript" src="./js/lib/jq.1.11.1.min.js"></script>
+        <script type="text/javascript" src="./js/common/swiper-3.3.1.jquery.min.js"></script>
+        <script type="text/javascript" src="./js/app/style.js"></script>
+        <!-- 弹出框dialog -->
+        <script type="text/javascript" src="./js/common/dialog.js" id="dialog_js" charset="utf-8"></script>
+        <script type="text/javascript" src="./js/common/jquery-ui.js"></script>
+        <script type="text/javascript" src="./js/common/common.js"></script>
+        <!-- 日期组件 -->
+        <link rel="stylesheet" type="text/css" href="./css/lib/jquery-calendar.css" />     
+        <script type="text/javascript" src="./js/lib/jquery-calendar.js"></script> 
+        <!-- 多图上传 -->
+        <link rel="stylesheet" type="text/css" href="./css/lib/webuploader.css" />     
+        <link rel="stylesheet" type="text/css" href="./css/lib/styleUpload.css" />     
+        <script type="text/javascript" src="./js/lib/webuploader.js"></script>
+        <script type="text/javascript" src="./js/lib/uploader.js"></script>
+        <!-- 拖拽组件 -->
+        <link rel="stylesheet" type="text/css" href="./css/lib/jquery.dad.css" />      
+        <script type="text/javascript" src="./js/lib/jquery.dad.min.js"></script> 
+        <!-- 百度编辑器 -->
+        <script type="text/javascript" charset="utf-8" src="../ueditor/ueditor.config.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../ueditor/ueditor.all.min.js"> </script>
+        <script type="text/javascript" charset="utf-8" src="../ueditor/lang/zh-cn/zh-cn.js"></script>
+        <script type="text/javascript">
+            var ue = UE.getEditor('editor');
+        </script>
+
+    </head>
+    <body>
+    <!-- 头部提取结束 -->
+        <!-- 顶部提示tips -->
+        <div class="tips fl">
+            <img class="fl" src="img/warning.png" alt="">
+            <p class="fl light">注：如职位变动已申请并在流程中的款项将被注销，需重新提交请款，重新走流程。申请成功或被拒绝的款项会在财务报表中呈现。</p>
+        </div>
+        <!-- 区域管理中间模块 -->
+        <div class="con_con content fl">
+            <div class="item ">
+                <div class="item_con">
+                    <div class="title">
+                        <p> <span>管理 > 编辑</span><a href="javascript:history.back(-1)">【返回】</a> </p>
+                    </div>
+                    <div class="info works_info cle">
+                        <form action="" method="post">
+                            <!-- 宽500 input text -->
+                            <div class="inputBox">
+                                <label>名称：</label>
+                                <input class="w500" type="text" name="name_" value="" placeholder="请输入名称">
+                            </div> 
+                            <!-- 宽300 input text -->
+                            <div class="inputBox">
+                                <label>作者：</label>
+                                <input class="w300" type="text" name="author_" value="" placeholder="请输入作者">
+                            </div> 
+                            <!-- 宽200 input 时间组件 -->
+                            <div class="inputBox">
+                                <label>创建时间：</label>
+                                <input class="w200" maxlength="10" onfocus="$(this).calendar()" readonly type="text" name="date_" value="" placeholder="2017-05-19">
+                            </div> 
+                            <!-- 宽100 input text -->
+                            <div class="inputBox">
+                                <label>排序：</label>
+                                <input class="w100" type="text" name="order_" value="" placeholder="100">
+                            </div> 
+                             <!-- 宽300 下拉框 -->
+                            <div class="inputBox">
+                                <label>所属分类：</label>
+                                <select class="w300" name="group_name" id="">
+                                    <option value="0">系统设置</option>    
+                                </select>         
+                            </div>
+                            <!-- 单选 -->
+                            <div class="inputBox">
+                                <label>单选：</label>
+                                <input class="hide" type="radio" name="tuijian" id="tuijian1">
+                                <label class="radioStyle" for="tuijian1">VIP</label>
+                                <input class="hide" type="radio" name="tuijian" id="tuijian2">
+                                <label class="radioStyle" for="tuijian2">VIP2</label>
+                                <input class="hide" type="radio" name="tuijian" id="tuijian3">
+                                <label class="radioStyle" for="tuijian3">VIP3</label>
+                            </div> 
+                            <!-- 多选 -->
+                            <div class="inputBox">
+                                <label>多选：</label>
+                                <input class="hide" type="checkbox" name="biaoqian1" id="biaoqian1">
+                                <label class="checkboxStyle" for="biaoqian1">恐怖</label>
+                                <input class="hide" type="checkbox" name="biaoqian2" id="biaoqian2">
+                                <label class="checkboxStyle" for="biaoqian2">悬疑</label>
+                                <input class="hide" type="checkbox" name="biaoqian3" id="biaoqian3">
+                                <label class="checkboxStyle" for="biaoqian3">惊悚</label>
+                                <input class="hide" type="checkbox" name="biaoqian4" id="biaoqian4">
+                                <label class="checkboxStyle" for="biaoqian4">剧情</label>
+                            </div> 
+                            <!-- 选择图片+预览 -->
+                            <div class="inputBox">
+                                <label>封面：</label>
+                                <input class="fileName w300" type="text" disabled="disabled" value="" style="background-color:#fff;">
+                                <a class="file" href="javascript:;">浏览
+                                    <input type="file" name="iconFile" id="fileSelect" onchange="fileChange(this)">
+                                </a>
+                                <!-- {{if isset($datas.filename) }}
+                                    <a class="preview" href="{{$datas.filename}}" target="_blank"></a>
+                                {{/if}} -->
+                            </div>
+                             <!-- 宽500 高100 文本框 -->
+                            <div class="inputBox">
+                                <label>描述：</label>
+                                <textarea class="w500 h100" name="description" placeholder="请输入描述（一般不超过200字符）" ></textarea>
+                            </div>
+                            <div class="inputBox">
+                                <p>详细介绍：</p>   
+                                <script style="width:90%;height:500px" id="editor" name="content" type="text/plain" >{{$datas.content?? ''}}</script>  
+                            </div>
+                            <!-- 多图排列 -->
+                            <div class="inputBox">
+                                <div class="cle thumbUl thumbDrag">
+
+                                    <div class="file-item item thumbnail" data-id="0">
+                                        <img src="images/image.png" alt="">
+                                        <div class="hide thumbHide">
+                                            <span class="cancel" data-url=""></span>
+                                            <span class="mirror"></span>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <input type="hidden" id="picOrder" name="picOrder" value="">                            
+                            <!-- 多图上传 -->
+                            <div class="inputBox">
+                                <p>作品上传：</p>  
+                                    <div id="uploader" class="imagesUpload">
+                                        <div class="file1" id="filePicker1" data-s="" data-url="{{:url('works_section/upload')}}" data-param='{"works_id":"{{$Request.param.works_id}}" }'>上传图片</div>
+                                        <div id="fileList" class="uploader-list cle"></div>
+                                    </div>
+                            </div>  
+                            <div class="inputBox">
+                                <input class="darkBlue-btn" type="submit" value="确认提交">
+                            </div> 
+                        </form>  
+                    </div>
+                </div>   
+            </div>
+        </div>     
+        <!-- 如果需要弹出框 -->
+        <div id="append_parent"></div>
+        <div id="ajaxwaitid"></div>    
+        <script type="text/javascript">
+            // 图片拖拽顺序
+            function thumbOrder(){
+                var ord = [],
+                    ordStr ='';
+                $('.thumbUl .thumbnail').each(function(i){
+                   var ids = $(this).attr('data-id');
+                   ord.push(ids);
+                })
+                ord.splice(-1,1);
+                ordStr = ord.toString();
+                $('#picOrder').attr('value',ordStr);
+            }
+            $(function(){
+                // 图片拖拽回调
+               var n = $('.thumbDrag').dad({
+                   callback:function(){
+                        thumbOrder();
+                   }
+               });
+                //鼠标经过工具栏禁止拖拽
+               $('.thumbnail').each(function(i){
+                   $(this).find('.thumbHide').mouseover(function(){
+                        n.deactivate();
+                        $(this).mouseout(function(){
+                            n.activate();                        
+                        })
+                    })
+               })
+            })
+        
+        </script>

@@ -1,0 +1,128 @@
+<!-- 头部提取开始 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>神居后台管理</title>
+    <link rel="stylesheet" type="text/css" href="./css/common/swiper-3.3.1.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/bootstrapStyle.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./js/common/dialog.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script type="text/javascript" src="./js/lib/jq.1.11.1.min.js"></script>
+    <script type="text/javascript" src="./js/common/swiper-3.3.1.jquery.min.js"></script>
+    <script type="text/javascript" src="./js/app/style.js"></script>
+    <script type="text/javascript" src="./js/common/dialog.js" id="dialog_js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/common/jquery-ui.js"></script>
+    <script type="text/javascript" src="./js/common/common.js"></script>
+</head>
+<body>
+<!-- 头部提取结束 -->
+    <!-- 顶部提示tips -->
+    <div class="tips fl">
+        <img class="fl" src="img/warning.png" alt="">
+        <p class="fl light">注：如职位变动已申请并在流程中的款项将被注销，需重新提交请款，重新走流程。申请成功或被拒绝的款项会在财务报表中呈现。</p>
+    </div>
+    <!-- 区域管理中间模块 -->
+    <div class="con_con content fl">
+        <div class="item">
+            <div class="item_con">
+                <div class="title">
+                    <p> <span>排行统计</span> </p>
+                </div>
+                <div class="sensitive">
+                   <div class="inputBox">
+                       <label>输入敏感词：</label>
+                       <input class="w500" type="text" name="sensitive_word" id="" placeholder="以半角空格隔开">
+                   </div>
+
+                   <div class="inputBox">
+                        <label>已添加：</label>
+                        <ul class="cle sensitive_ul">
+                            <li class="fl" data-id="0">
+                                <div class="sensitive_word fl">
+                                        敏感词                                        
+                                </div>
+                                <div class="hide fr">
+                                        x   
+                                </div>
+                            </li>
+                            <li class="fl" data-id="0">
+                                <div class="sensitive_word fl">
+                                        敏感词                                        
+                                </div>
+                                <div class="hide fr">
+                                        x   
+                                </div>
+                            </li>
+                            <li class="fl" data-id="0">
+                                <div class="sensitive_word fl">
+                                        敏感词                                        
+                                </div>
+                                <div class="hide fr">
+                                        x   
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info">
+                    <form action="" method="post">
+                        <div class="inputBox">
+                            <input type="submit" value="确定" class="submit" data-url="">
+                        </div> 
+                    </form>
+                    
+                </div>
+            </div>   
+        </div>
+    </div>     
+    <script type="text/javascript">
+    $(function(){
+        $('.sensitive_ul li').each(function(i){
+            $(this).click(function(){
+                $(this).addClass('current').siblings().removeClass('current');
+                $(this).find('.hide').click(function(){
+                    var dataId = $(this).parent().attr('data-id');
+                    $.ajax({
+                        url:'',
+                        data:{
+                            'dataId':dataId
+                        },
+                        dataType:'json',
+                        success:function(data){
+                            console.log(data);
+                            window.location.reload(true);  
+                        }
+                    });
+                    $(this).parent().remove();
+                })
+            })
+        })
+        
+var keywords=["阿扁推翻","阿宾","阿賓"];  
+$("input[type=text]").on("blur",function(){  
+    _filter_method($(this));  
+});  
+$("textarea").on("blur",function(){  
+    _filter_method($(this));  
+});  
+  
+function _filter_method(obj){  
+    //获取文本输入框中的内容  
+    var value = $(obj).val();  
+    //遍历敏感词数组  
+    for(var i=0;i<keywords.length;i++){  
+        //全局替换  
+        var reg = new RegExp(keywords[i],"g");  
+        //判断内容中是否包括敏感词  
+        if(value.indexOf(keywords[i])!=-1){  
+            var result = value.replace(reg,"**");  
+            value = result;  
+            $(obj).val(result);  
+        }  
+    }  
+}  
+        
+    })
+    </script>

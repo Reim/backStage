@@ -1,0 +1,53 @@
+
+        <form action=""  method="post"  id="ajax_form_submit">  
+                <div class="addContent">
+                   <div class="inputBox">
+                       <label class="light">广告标题：</label>
+                       <input class="w300" type="text" name="name" placeholder="请输入标题" >
+                   </div>
+                   <div class="inputBox">
+                       <label class="light">选择广告位：</label>
+                       <select class="w300" name="ads_select" id="">
+                           <option value="-1" disabled="disabled" selected>请选择广告位</option>
+                       </select>
+                   </div>
+                   <div class="inputBox">
+                       <label class="light">排序：</label>
+                       <input class="w100" type="text" name="order"  >
+                   </div>
+                   <div class="inputBox">
+                       <label class="light">链接地址：</label>
+                       <input class="w300" type="text" name="url" placeholder="http://" >
+                   </div>
+                   <div class="inputBox">
+                       <label class="light">广告图：</label>
+                       <input class="fileName w200" type="text" disabled="disabled" value="" style="background-color:#fff;">
+                       <a class="file fl" href="javascript:;">浏览
+                           <input type="file" name="iconFile" id="fileSelect" onchange="fileChange(this)">
+                       </a>
+                       <!-- {{if isset($datas.filename) }}
+                           <a class="preview" href="{{$datas.filename}}" target="_blank"></a>
+                       {{/if}} -->
+                   </div>
+                   <div class="inputBox">
+                       <label class="light">广告描述：</label>
+                       <textarea class="w300" name="content" id="" placeholder="请输入新闻内容"></textarea>
+                   </div>
+                </div>      
+                <div class="addConfirm inputBox cle">
+                    <input class="btn fr confirmBtn" type="submit" value="确定"> 
+                </div>
+            
+            </form>
+            
+            <script language="javascript">
+                $(function() {
+                  
+                    $(".confirmBtn").click(function() {
+                        ajaxpost('ajax_form_submit', '', '', 'onerror') ;
+                    })
+                  
+        
+                }) 
+            </script>
+            

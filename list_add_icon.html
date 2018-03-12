@@ -1,0 +1,29 @@
+
+    <form action=""  method="post"  id="ajax_form_submit">  
+            <div class="addContent">
+                <ul class="list_icons">
+                    <li class="fl" data-name="1"><img src="icons/1.png" alt=""></li>
+                    <li class="fl" data-name="2"><img src="icons/2.png" alt=""></li>
+                    <li class="fl" data-name="3"><img src="icons/3.png" alt=""></li>
+                </ul>
+                <input type="hidden" name="iconId" id="iconId" value="0">
+            </div>      
+           
+        </form>
+        <script language="javascript">
+            $(function() {
+                //选中icon的data-id;
+                var nowIcon;
+                $('.list_icons').on('click','li',function(){
+                    $(this).addClass('current').siblings().removeClass('current');
+                    nowIcon = $(this).find('img').attr('src');
+                    nowName = $(this).attr('data-name');
+                    $('.icon_selected').attr('src',nowIcon);
+                    $('.icon_selected').attr('data-name',nowName);
+                    $('#icon_selected').attr('value',nowName);
+                })
+               
+              
+            }) 
+        </script>
+        

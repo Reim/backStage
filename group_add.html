@@ -1,0 +1,27 @@
+
+    <form action=""  method="post"  id="ajax_form_submit">  
+            <div class="addContent">
+                <div class="inputBox">
+                    <input style="width:99%" type="text" name="name" placeholder="请输入名称">           
+                </div>
+                <div class="inputBox">
+                    <input style="width:60px" type="text" name="order" placeholder="排序">           
+                </div>
+                <div class="inputBox">
+                    <textarea style="width:99%" name="description" placeholder="请输入描述"></textarea>       
+                </div>
+            </div>      
+            <div class="addConfirm inputBox cle">
+                <input class="btn fr confirmBtn" type="submit" value="确定"> 
+            </div>
+        </form>
+        <script language="javascript">
+            $(function() {
+                
+                $(".confirmBtn").click(function() {
+                    ajaxpost('ajax_form_submit', '', '', 'onerror') ;
+                })
+               
+            }) 
+        </script>
+        

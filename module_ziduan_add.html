@@ -1,0 +1,55 @@
+
+    <form action=""  method="post"  id="ajax_form_submit">  
+        <div class="addContent">
+           <div class="inputBox">
+               <input type="text" style="width:99%" name="ziduan_name" placeholder="字段名">
+           </div>
+           <div class="inputBox">
+                <input type="text" style="width:99%" name="cn_name" placeholder="字段名">
+           </div>
+           <div class="inputBox">
+                <select style="width:99%" name="type_name" id="" >
+                    <option disabled selected value="">字段类型</option>
+                    <option value="0">1</option>
+                </select>  
+           </div>
+           <div class="inputBox">
+               <input class="fl" style="width:30%;margin-right: 4%;" type="text" name="length_name" placeholder="字段长度">
+               <input class="fl" style="width:30%;margin-right: 4%;" type="text" name="length_char" placeholder="字符长度">
+               <input class="fl" style="width:30%" type="text" name="order_name" placeholder="排序">
+           </div>
+           <div class="inputBox">
+                <input style="width:99%"  type="text" name="tags_name" placeholder="分类标签">
+           </div>
+           <div class="inputBox">
+            <label class="fl light" style="color: #808080;font-size:14px;" for="">列表显示：</label>
+            <input class="fl" type="checkbox" name="if_listOn" id="" style="margin-right:24px;">
+
+            <label class="fl light" style="color: #808080;font-size:14px;" for="">搜索条件：</label>
+            <input class="fl" type="checkbox" name="if_search" id="" style="margin-right:24px;">
+
+            <label class="fl light" style="width:120px;color: #808080;font-size:14px;" for="">是否验证不为空：</label>
+            <input class="fl" type="checkbox" name="if_verify" id="">
+           </div>
+
+           <div class="inputBox">
+               <textarea style="width:99%;" name="intro_name" id="" placeholder="字段说明"></textarea>
+           </div>
+        </div>      
+        <div class="addConfirm inputBox cle">
+            <input class="btn fr" class="confirmBtn" type="submit" value="确定"> 
+        </div>
+    
+    </form>
+    
+    <script language="javascript">
+        $(function() {
+          
+            $(".confirmBtn").click(function() {
+                ajaxpost('ajax_form_submit', '', '', 'onerror') ;
+            })
+          
+
+        }) 
+    </script>
+    

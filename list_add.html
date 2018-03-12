@@ -1,0 +1,124 @@
+<!-- 头部提取开始 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>神居后台管理</title>
+    <link rel="stylesheet" type="text/css" href="./css/common/swiper-3.3.1.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/bootstrapStyle.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./js/common/dialog.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script type="text/javascript" src="./js/lib/jq.1.11.1.min.js"></script>
+    <script type="text/javascript" src="./js/common/swiper-3.3.1.jquery.min.js"></script>
+    <script type="text/javascript" src="./js/app/style.js"></script>
+    <script>var SITEURL="http://www.fangqt.com";</script>
+    <script type="text/javascript" src="./js/common/dialog.js" id="dialog_js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/common/jquery-ui.js"></script>
+    <script type="text/javascript" src="./js/common/common.js"></script>
+</head>
+<body>
+<!-- 头部提取结束 -->
+    <!-- 顶部提示tips -->
+    <div class="tips fl">
+        <img class="fl" src="img/warning.png" alt="">
+        <p class="fl light">注：如职位变动已申请并在流程中的款项将被注销，需重新提交请款，重新走流程。申请成功或被拒绝的款项会在财务报表中呈现。</p>
+    </div>
+    <!-- 区域管理中间模块 -->
+    <div class="con_con content fl">
+        <div class="item">
+            <div class="item_con">
+                <div class="title">
+                    <p> <span>菜单管理 > 编辑</span> <a href="javascript:history.back(-1)">【返回】</a> </p>
+                </div>
+                <div class="info list_info">
+                    <form action="" method="post" class="cle">
+                        <div class="fl">
+                            <div class="inputBox">
+                                <label>栏目名称：</label>
+                                <input class="w300" type="text" name="lanmu_name" placeholder="分组管理">             
+                            </div>
+                            <div class="inputBox">
+                                <label>英文名称：</label>
+                                <input class="w500" type="text" name="en_name" placeholder="分组管理">             
+                            </div>
+                            <div class="inputBox">
+                                <label>名称：</label>
+                                <input class="w500" type="text" name="name" placeholder="AdminGroup/index">             
+                            </div>
+                            <div class="inputBox">
+                                <label>类型名称：</label>
+                                <input class="w500" type="text" name="type_name" placeholder="AdminGroup/index"></input>           
+                            </div>   
+                            <div class="inputBox">
+                                <label>排序：</label>
+                                <input class="w500" type="text" name="order_name" placeholder="AdminGroup/index"></input>           
+                            </div>   
+                            <div class="inputBox">
+                                <label>所属分组：</label>
+                                <select name="group_name" id="">
+                                    <option value="0">系统设置</option>    
+                                </select>         
+                            </div>   
+                            <div class="inputBox">
+                                <label>绑定模型：</label>
+                                <input class="fl hide" type="radio" name="module_name" id="module_name1" value="">
+                                <label class="fl center radioStyle" for="module_name1">作为菜单</label> 
+                                <input class="fl hide" type="radio" name="module_name" id="module_name2" value="">
+                                <label class="fl center radioStyle" for="module_name2">介绍模型</label>          
+                                <input class="fl hide" type="radio" name="module_name" id="module_name3" value="">
+                                <label class="fl center radioStyle" for="module_name3">新闻模型</label>    
+                            </div>
+                            <div class="inputBox">
+                                <label>缩略图：</label>
+                                <input class="fileName" type="text" disabled="disabled"  value="" style="background-color:#fff;">
+                                <a class="file fl" href="javascript:;">浏览
+                                    <input type="file" name="iconFile" id="" onchange="fileChange(this.id,this)" >
+                                </a>
+                               <img class="thumb fl" src="" alt="缩略图">
+                            </div>
+                            <div class="inputBox">
+                                <label>ICON：</label>
+                                <input class="choose" type="button" value="选择" >   
+                                <div class="fl icon" >
+                                    <img class="icon_selected" style="display:inline;" src="icons/1.png" alt="">  
+                                    <input id="icon_selected" type="hidden" name="icon_selected" value="">                                           
+                                </div>   
+                            </div>
+                            <div class="inputBox">
+                                <label>栏目描述：</label>
+                                <textarea class="w500 h100" name="description" placeholder="请输入网站描述（一般不超过200字符）"></textarea>             
+                            </div>  
+                        </div>
+                        <div class="fl">
+                            <div class="inputBox">
+                                <p>详细介绍：</p>   
+                                编辑器           
+                            </div> 
+                        </div>
+                        <div class="inputBox">
+                            <label></label>
+                            <input type="submit" value="确认提交" class="confirmBtn" >
+                        </div>                   
+                    </form>
+                </div>
+            </div>   
+        </div>
+    </div>     
+
+    <script type="text/javascript">
+           
+        $(function(){
+            $(".choose").click(function() {
+                  var dataUrl =$(this).attr('data-url');
+                  ajax_form('gg','ICON', dataUrl);
+            })
+            $(".confirmBtn").click(function() {
+                  ajaxpost('ajax_form_submit', '', '', 'onerror') ;
+            })
+        })
+
+
+
+    
+    </script>

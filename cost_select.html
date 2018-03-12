@@ -1,0 +1,76 @@
+<!-- 头部提取开始 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>神居后台管理</title>
+    <link rel="stylesheet" type="text/css" href="./css/common/swiper-3.3.1.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/bootstrapStyle.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./js/common/dialog.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+      <!-- 日期组件 -->
+      <link rel="stylesheet" type="text/css" href="./css/lib/jquery-calendar.css" /> 
+      
+    <script type="text/javascript" src="./js/lib/jq.1.11.1.min.js"></script>
+    <script type="text/javascript" src="./js/common/swiper-3.3.1.jquery.min.js"></script>
+    <script type="text/javascript" src="./js/app/style.js"></script>
+    <script type="text/javascript" src="./js/common/dialog.js" id="dialog_js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/common/jquery-ui.js"></script>
+    <script type="text/javascript" src="./js/common/common.js"></script>
+      <!-- 日期组件 -->
+    <script type="text/javascript" src="./js/lib/jquery-calendar.js"></script> 
+</head>
+<body>
+<!-- 头部提取结束 -->
+    <!-- 顶部提示tips -->
+    <div class="tips fl">
+        <img class="fl" src="img/warning.png" alt="">
+        <p class="fl light">注：如职位变动已申请并在流程中的款项将被注销，需重新提交请款，重新走流程。申请成功或被拒绝的款项会在财务报表中呈现。</p>
+    </div>
+    <!-- 区域管理中间模块 -->
+    <div class="con_con content fl">
+        <div class="item">
+            <div class="item_con">
+                <div class="title">
+                    <p> <span>消费记录</span> </p>
+                </div>
+                <div class="searchBox">
+                    <form action="" method="post">
+                        <input class="w300" type="text" name="id_member" placeholder="请输入会员ID">
+                        <input class="w300" type="text" name="keyword_member" placeholder="请输入会员微信昵称或关键字">
+                        <input class="w100" maxlength="10" onfocus="$(this).calendar()" readonly type="text" name="dateFrom_member" placeholder="注册日期始">
+                        <span>至</span>
+                        <input class="w100" maxlength="10" onfocus="$(this).calendar()" readonly type="text" name="dateTo_member" placeholder="注册日期终">
+                        <input type="submit" value="搜索" class="search">
+                        <span style="margin-left:2%">合计：<i style="color:#d5242a">1000</i> 金币</span>
+                    </form>
+                </div>
+                <div class="info">
+                    <table class="table_table cost_table" cellspacing="0" >
+                        <th>会员ID</th>
+                        <th>微信昵称</th>
+                        <th>消费类目</th>
+                        <th>消费时间</th>
+                        <th>消费金额</th>
+                        <tr>
+                            <td>12345</td>
+                            <td class="left">tony269</td>
+                            <td>【漫画名称漫画名称】章节名称章节名称节名称</td>
+                            <td>2017-11-18</td>
+                            <td>-4000金币</td>
+                        </tr>
+                    </table>      
+                    <div class="page">
+                        <!-- {$.page} -->                                
+                        <a class="prev" href="">上一页</a>
+                        <a href="">1</a>
+                        <a class="current" href="">2</a>
+                        <a href="">3</a>
+                        <a href="">4</a>
+                        <a class="next" href="">下一页</a>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div>     

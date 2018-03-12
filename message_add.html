@@ -1,0 +1,59 @@
+
+    <form action=""  method="post"  id="ajax_form_submit">  
+            <div class="addContent">
+               <div class="inputBox">
+                    <label class="light">会员ID：</label>
+                    <p class="light" style="font-size:14px;margin-top:3px;">123456</p>
+               </div>
+               <div class="inputBox">
+                   <label class="light">会员昵称：</label>
+                   <p class="light" style="font-size:14px;margin-top:3px;">tony296</p>
+               </div>
+               <div class="inputBox">
+                    <label class="light">注册日期：</label>
+                    <p class="light" style="font-size:14px;margin-top:3px;">2017-11-18</p>
+               </div>
+               <div class="inputBox light" >
+                    <label>禁言状态：</label>
+                    <input class="fl hide" type="radio" name="gag" id="gag1" value="wu">
+                    <label class="fl radioStyle" style="text-indent:1em;" for="gag1">无</label>   
+                    <input class="fl hide" type="radio" name="gag" id="gag2" value="jinyan">
+                    <label class="fl radioStyle" style="text-indent:1em;" for="gag2">禁言</label>  
+               </div>
+               <div class="inputBox">
+                    <label></label>  
+                    <input style="width:70%" type="text" name="" placeholder="请输入禁言理由">    
+                </div> 
+               <div class="inputBox">
+                    <label class="light">余额：</label>
+                    <p class="light" style="font-size:14px;margin-top:3px;">0</p>
+               </div>
+               <div class="inputBox light">
+                    <label>添加余额：</label>
+                    <input class="fl hide" type="radio" name="gold" id="add_gold1" value="zengsong">
+                    <label class="fl radioStyle" style="text-indent:1em;" for="add_gold1">系统赠送</label>   
+                    <input class="fl hide" type="radio" name="gold" id="add_gold2" value="failed">
+                    <label class="fl radioStyle" style="text-indent:1em;" for="add_gold2">充值失败</label>  
+               </div>
+               <div class="inputBox">
+                    <label></label>  
+                    <input style="width:70%" type="text" name="" placeholder="请输入充值金额">    
+                </div> 
+            </div>      
+            <div class="addConfirm inputBox cle">
+                <input class="btn fr confirmBtn" type="submit" value="确定"> 
+            </div>
+        
+        </form>
+        
+        <script language="javascript">
+            $(function() {
+              
+                $(".confirmBtn").click(function() {
+                    ajaxpost('ajax_form_submit', '', '', 'onerror') ;
+                })
+              
+    
+            }) 
+        </script>
+        

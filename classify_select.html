@@ -1,0 +1,81 @@
+<!-- 头部提取开始 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>神居后台管理</title>
+    <link rel="stylesheet" type="text/css" href="./css/common/swiper-3.3.1.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/bootstrapStyle.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./js/common/dialog.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script type="text/javascript" src="./js/lib/jq.1.11.1.min.js"></script>
+    <script type="text/javascript" src="./js/common/swiper-3.3.1.jquery.min.js"></script>
+    <script type="text/javascript" src="./js/app/style.js"></script>
+    <script>var SITEURL="http://www.fangqt.com";</script>
+    <script type="text/javascript" src="./js/common/dialog.js" id="dialog_js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/common/jquery-ui.js"></script>
+    <script type="text/javascript" src="./js/common/common.js"></script>
+</head>
+<body>
+<!-- 头部提取结束 -->
+    <!-- 顶部提示tips -->
+    <div class="tips fl">
+        <img class="fl" src="img/warning.png" alt="">
+        <p class="fl light">注：如职位变动已申请并在流程中的款项将被注销，需重新提交请款，重新走流程。申请成功或被拒绝的款项会在财务报表中呈现。</p>
+    </div>
+    <!-- 区域管理中间模块 -->
+    <div class="con_con content fl">
+        <div class="item">
+            <div class="item_con">
+                <div class="title">
+                    <p> <span>分类管理</span> </p>
+                </div>
+                <div class="info">
+                    <form action="" method="post" >
+                    <table class="table_table classify_table" cellspacing="0" >
+                        <th>ID</th>
+                        <th>分类名称</th>
+                        <th>排序</th>
+                        <th>操作</th>
+
+                        <tr>
+                            <td>1</td>
+                            <td>少女漫画</td>
+                            <td><input type="text" name="order" placeholder="排序" value="2"></td>
+                            <td>
+                                <a class="edit ctrl" href="javascript:void(0)" data-url="">编辑</a>
+                                <a class="delete" href="javascript:void(0)" data-url="">删除</a>
+                            </td>
+                        </tr>
+                        
+                    </table>      
+                    <div class="inputBox">
+                        <input type="submit" value="更新状态" class="confirmBtn">
+                        <input type="button" value="新增" class="add" data-url="">
+                    </div> 
+                    </form>
+                </div>
+            </div>   
+        </div>
+    </div>     
+    <div id="append_parent"></div>
+    <div id="ajaxwaitid"></div>    
+
+    <script type="text/javascript">
+        $(function(){
+
+            $(".add").click(function() {
+                var dataUrl =$(this).attr('data-url');
+                  ajax_form('gg', '分组管理',dataUrl);
+            })
+            $(".edit").click(function() {
+                var dataUrl =$(this).attr('data-url');
+                  ajax_form('gg', '分类管理',dataUrl);
+            })
+            $(".delete").click(function() {
+                var dataUrl =$(this).attr('data-url');
+                ajax_get_confirm('是否确定删除',dataUrl);
+            })
+        })
+    </script>

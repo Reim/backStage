@@ -1,0 +1,115 @@
+<!-- 头部提取开始 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>神居后台管理</title>
+    <link rel="stylesheet" type="text/css" href="./css/common/swiper-3.3.1.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/bootstrapStyle.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./js/common/dialog.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script type="text/javascript" src="./js/lib/jq.1.11.1.min.js"></script>
+    <script type="text/javascript" src="./js/common/swiper-3.3.1.jquery.min.js"></script>
+    <script type="text/javascript" src="./js/app/style.js"></script>
+    <script type="text/javascript" src="./js/common/dialog.js" id="dialog_js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/common/jquery-ui.js"></script>
+    <script type="text/javascript" src="./js/common/common.js"></script>
+        <!-- 多图上传 -->
+    <link rel="stylesheet" type="text/css" href="./css/lib/webuploader.css" />     
+    <link rel="stylesheet" type="text/css" href="./css/lib/styleUpload.css" />     
+    <script type="text/javascript" src="./js/lib/webuploader.js"></script>
+    <script type="text/javascript" src="./js/lib/uploader.js"></script>
+ 
+        <!-- 日期组件 -->
+    <link rel="stylesheet" type="text/css" href="./css/lib/jquery-calendar.css" />     
+    <script type="text/javascript" src="./js/lib/jquery-calendar.js"></script> 
+
+    <style>
+    #uploader .statusBar{
+        height: 100px;
+    }
+    </style>
+</head>
+<body>
+<!-- 头部提取结束 -->
+    <!-- 顶部提示tips -->
+    <div class="tips fl">
+        <img class="fl" src="img/warning.png" alt="">
+        <p class="fl light">注：如职位变动已申请并在流程中的款项将被注销，需重新提交请款，重新走流程。申请成功或被拒绝的款项会在财务报表中呈现。</p>
+    </div>
+    <!-- 区域管理中间模块 -->
+    <div class="con_con content fl">
+        <div class="item">
+            <div class="item_con">
+                <div class="title">
+                    <p> <span>作品管理 > 漫画编辑 > 章节编辑</span><a href="javascript:history.back(-1)">【返回】</a> </p>
+                </div>
+                <div class="info works_info cle">
+                    <form action="" method="post">
+                        <div class="inputBox">
+                            <label>漫画名称：</label>
+                            <input class="w500 white" type="text" name="name_comic" value="" disabled="disabled" placeholder="超级漫画">
+                        </div> 
+                        <div class="inputBox">
+                            <label>章节名称：</label>
+                            <input class="w300" type="text" name="author_comic" value="" placeholder="请输入章节名称">
+                        </div> 
+                        <div class="inputBox">
+                            <label>创建时间：</label>
+                            <input class="w300" maxlength="10" onfocus="$(this).calendar()" readonly type="text" name="date_comic" value="" placeholder="2017-05-19">
+                        </div> 
+                        <div class="inputBox">
+                            <label>排序：</label>
+                            <input class="w300" type="text" name="order_comic" value="" placeholder="100">
+                        </div> 
+                        <div class="inputBox">
+                            <label>章节数：</label>
+                            <input class="w300" type="text" name="section_comic" value="" placeholder="100">
+                        </div>
+                        <div class="inputBox">
+                            <label>封面：</label>
+                            <input class="fileName w300" type="text" disabled="disabled" value="" style="background-color:#fff;">
+                            <a class="file fl" href="javascript:;">浏览
+                                <input type="file" name="iconFile" id="fileSelect" onchange="fileChange(this.id,this)">
+                            </a>
+                            <img class="thumb fl" src="" alt="缩略图">
+                        </div>
+                        <div class="inputBox">
+                            <label>资费：</label>
+                            <input class="hide" type="radio" name="free" id="pay1">
+                            <label class="radioStyle" for="pay1">免费</label>
+                            
+                            <input class="hide" type="radio" name="pay" id="pay2" checked="checked">
+                            <label class="radioStyle" for="pay2">付费</label>
+                           
+                            <input class="w100" type="text" name="gold" placeholder=""> <span>金币</span> 
+                        </div>
+                        <div class="inputBox">
+                            <p>作品上传：</p>  
+                                <div id="uploader" class="imagesUpload">
+                                    <div class="file1" id="filePicker1" data-s="" data-url="{{:url('WebUpload/index')}}" data-param='{"module_type":"{{$model_val.table}}" }'>上传图片</div>
+                                    <div id="fileList" class="uploader-list cle"></div>
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="inputBox">
+                            <!-- <input type="submit" value="更新状态" class="confirmBtn"> -->
+                            <input type="submit" value="确认提交" class="submit">
+                        </div> 
+                    </form>  
+                </div>
+            </div>   
+        </div>
+    </div>     
+    <footer>
+        <div id="append_parent"></div>
+        <div id="ajaxwaitid"></div>    
+    </footer>
+    <script type="text/javascript">
+        $('.radioStyle').click(function(){
+            $(this).siblings().removeAttr('checked');
+        })
+
+    </script>
+    

@@ -1,0 +1,50 @@
+
+        <form action=""  method="post"  id="ajax_form_submit">  
+            <div class="addContent">
+               <div class="inputBox">
+                   <label class="light">广告位名称：</label>
+                   <input class="w300" type="text" name="name" placeholder="请输入标题" >
+               </div>
+               <div class="inputBox">
+                   <label class="light">广告类型：</label>
+                   <div class="input_check cle">
+                       <div class="input_radio fl">
+                            <input class="hide" type="radio" name="type_ads" id="type_ads1">
+                            <label class="radioStyle light" for="type_ads1">单图</label>
+                       </div>
+                       <div class="input_radio fl">
+                            <input class="hide" type="radio" name="type_ads" id="type_ads2">
+                            <label class="radioStyle light" for="type_ads2">轮播多图</label>
+                       </div>
+                       <div class="input_radio fl">
+                            <input class="hide" type="radio" name="type_ads" id="type_ads3">
+                            <label class="radioStyle light" for="type_ads3">文本</label>
+                       </div>
+                   </div> 
+               </div>
+               <div class="inputBox">
+                    <label class="light">宽度：</label>
+                    <input class="w300" type="text" name="width" placeholder="请输入宽度" >
+               </div>
+               <div class="inputBox">
+                    <label class="light">高度：</label>
+                    <input class="w300" type="text" name="height" placeholder="请输入高度" >
+               </div>
+            </div>      
+            <div class="addConfirm inputBox cle">
+                <input class="btn fr confirmBtn" type="submit" value="确定"> 
+            </div>
+        
+        </form>
+        
+        <script language="javascript">
+            $(function() {
+              
+                $(".confirmBtn").click(function() {
+                    ajaxpost('ajax_form_submit', '', '', 'onerror') ;
+                })
+              
+    
+            }) 
+        </script>
+        

@@ -1,0 +1,375 @@
+<!-- 头部提取开始 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>神居后台管理</title>
+    <link rel="stylesheet" type="text/css" href="./css/common/swiper-3.3.1.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/bootstrapStyle.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./js/common/dialog.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script type="text/javascript" src="./js/lib/jq.1.11.1.min.js"></script>
+    <script type="text/javascript" src="./js/common/swiper-3.3.1.jquery.min.js"></script>
+    <script type="text/javascript" src="./js/app/style.js"></script>
+    <script>var SITEURL="http://www.fangqt.com";</script>
+    <script type="text/javascript" src="./js/common/dialog.js" id="dialog_js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/common/jquery-ui.js"></script>
+    <script type="text/javascript" src="./js/common/common.js"></script>
+</head>
+<!-- //同步測試 -->
+<!-- {include file="Public:header" /} -->
+<!-- 头部提取结束 -->
+    <!-- 顶部提示tips -->
+    <!--<div class="tips fl">-->
+        <!--<img class="fl" src="img/warning.png" alt="">-->
+        <!--<p class="fl light">注：如职位变动已申请并在流程中的款项将被注销，需重新提交请款，重新走流程。申请成功或被拒绝的款项会在财务报表中呈现。</p>-->
+    <!--</div>-->
+    <style>
+        .borderNone{border:none!important}
+        .sale_form_title{padding-bottom:20px;margin-bottom:60px;border-bottom:1px solid #999}
+        .sale_form_title input{margin:0 12px}
+        .sale_form label{width:130px!important}
+        .sale_form .search-ul{width:200px;max-height:200px;margin-left:130px;overflow-y:scroll;margin-bottom:20px;border:1px solid #686a6c;color:grey}
+        .sale_form .search-u::-webkit-scrollbar {
+            display: none;
+        }
+        .sale_form .search-ul2{margin-top:32px}
+        .sale_form .search-ul li{margin:12px 6px;cursor:pointer}
+        .total_price input{margin-right:100px;margin-bottom:20px}
+        .total_price label{width:100px!important}
+        .sale_form_box{margin-bottom:40px}
+        .sale_form{padding-bottom:20px;margin-bottom:40px;border-bottom:1px solid #686a6c}
+        .sale_form label{text-align:left}
+        .add-form{margin:40px 0 50px;cursor:pointer;width:100px;height:100px;border-radius:12px;background-color:#333;font-size:120px;color:#fff;font-weight:bolder;line-height:86px;text-align:center}
+    </style>
+    <!-- 区域管理中间模块 -->
+    <div class="con_con content fl">
+        <div class="item">
+            <div class="item_con">
+                <div class="title">
+                    <p> <span>菜单管理 > 编辑</span> <a href="javascript:history.back(-1)">【返回】</a> </p>
+                </div>
+                <div class="info list_info">
+                        <div class="addContent">
+                        <form action="/index.php/admin/Sale/insert" method="post" class="cle" enctype="multipart/form-data" id="ajax_form_submit">
+                            <!-- 表头 : 订单号、时间、运费 -->                            
+                            <div class="sale_order_num">
+                                <div class="inputBox sale_form_title">
+                                    <label>  订单号：</label>
+                                    <input class="borderNone w200 orderNum" type="text" name="orderNum" readonly="readonly" value="<?php echo date('Ymd').rand(); ?>">
+                                    <input class=" w200 orderTime" type="text" name="time" readonly="readonly" placeholder="时间" value="<?php echo date('Y-m-d'); ?>">
+                                    <input class=" w200 orderTax" type="text" name="yunfei" readonly="readonly" placeholder="运费" value="">
+                                </div>
+                            </div>
+                            <div class="sale_form_box">
+                            <!-- 一条单子START 编辑循环-->
+                            <div class="sale_form">                             
+                                <div class="inputBox">
+                                    <label class="light" style="text-align:left;;">产品名：</label>
+                                    <input class="w200 goods_input goods_input_product" data-url="/index.php/admin/Purchase/ajax_sosuo" type="text" name="name" placeholder="请输入产品名">
+                                    <input class="blue-btn search_goods" data-url="/index.php/admin/Sale/add" style="margin-top:2px;" type="button" value="搜索">
+                                    <ul class="search-ul">
+                                       
+                                    </ul>
+                                </div>   
+                                <div class="inputBox">
+                                    <label>采购价/单位/库存：</label>
+                                    <select class="goods-sel2 w500" name="company">
+                                    </select>
+                                </div>
+                                <div class="inputBox">
+                                    <label class="light" style="text-align:left;;">供应商：</label>
+                                    <input type="text" class="borderNone goods-type1" readonly="readonly" name="supplier"  value="">
+                                </div>
+                                <div class="inputBox">
+                                    <label class="light" style="text-align:left;;">仓库地址：</label>
+                                    <input type="text" class="borderNone goods-type2" readonly="readonly" name="address"   value="">
+                                </div>
+                                <div class="inputBox">
+                                    <label class="light" style="text-align:left;;">分类名：</label>
+                                    <input type="text" class="borderNone goods-type3" readonly="readonly" name="series_name"   value="">
+                                </div>
+                                <div class="inputBox">
+                                    <label class="light" style="text-align:left;;">姓名：</label>
+                                    <input class="w200 goods_input goods_input_person" data-url="" type="text" name="user_name" placeholder="请输入姓名">
+                                    <input class="fl blue-btn search_goods" data-url="" style="margin-top:2px;" type="button" value="搜索">
+                                    <label>历史出售价格：</label> 
+                                    <input class="w200 borderNone history_price" type="text" name="history_price" id="" readonly="readonly" value="">
+                                    <ul class="search-ul search-ul2">
+
+                                    </ul>
+                                </div>
+                                <div class="inputBox">
+                                    <label class="light" style="text-align:left;;">原价单位：</label>
+                                    <input class="w200 price_unit" type="text" name="danjia" placeholder="€">
+                                </div>
+                                <div class="inputBox">
+                                    <label class="light" style="text-align:left;;">数量：</label>
+                                    <input class="w200 goods_amount" type="text" name="shuliang" placeholder="">
+                                </div>
+                                <div class="inputBox">
+                                    <label class="light">备注：</label>
+                                    <textarea class="w500 goods_tips" name="content" id="" style="width:80%" placeholder="请输入备注"></textarea>
+                                </div>                  
+                                <div class="inputBox">
+                                    <label></label>
+                                    <input class="blue-btn send-form" type="button" value="生成">
+                                    <input class="red-btn delete-form" type="button" value="删除">
+                                </div>
+                                <div class="inputBox">
+                                    <label>小计：</label>
+                                    <input class="one-form-price w200 borderNone" readonly="readonly" value="" type="text" name="part_price" id="part_price">
+                                </div>
+                            </div>
+                            </div>
+                            <!-- 一条单子END -->
+                            <!-- 新增单子 -->
+                            <div class="add-form"> + </div>
+                            <!-- 总计 -->
+                            <div class="inputBox total_price">
+                                <label class="light" style="text-align:left;;">产品总计：</label>
+                                <input class="w200 " type="text" name="product_price" value="" readonly="readonly">
+                                <label class="light" style="text-align:left;;">运费：</label>
+                                <input class="w200 " type="text" name="freight" value="" readonly="readonly">
+                                <label class="light" style="text-align:left;;">总计：</label>
+                                <input class="w200 " type="text" name="total_price" value="" readonly="readonly">
+                                <label class="light" style="text-align:left;;">总采购价格：</label>
+                                <input class="w200 " type="text" name="total_buy" value="" readonly="readonly">
+                                <label class="light" style="text-align:left;;">总剩余：</label>
+                                <input class="w200 " type="text" name="total_rest" value="199.00" readonly="readonly">
+                            </div>
+                            <div class="addConfirm inputBox cle">
+                                <input type="submit" value="确认提交" class="confirmBtn" >
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+            var orderNum = $('.orderNum').val();
+            var orderTime = $('.orderTime').val();      
+            var orderTax = $('.orderTax').val();
+        $(function(){
+            // goods_list();
+            //新建form
+            $('.add-form').click(function(){
+                // 新建
+                goods_list();
+            })
+            //删除新表
+            $('.sale_form_box').on('click','.delete-form',function(){
+                $(this).parent().parent().remove();
+            })
+            // dialog
+            $(".confirmBtn").click(function() {
+                  ajaxpost('ajax_form_submit', '', '', 'onerror') ;
+            })
+            //生成ajax
+            $('.sale_form_box').on('click','.send-form',function(){
+                var _this = $(this).parent().parent();
+                var product_name = _this.find('.goods_input_product').val();
+                
+                var company = _this.find('.goods-sel2 option:selected').attr('data-company');
+                var count = _this.find('.goods-sel2 option:selected').attr('data-count');
+                var price = _this.find('.goods-sel2 option:selected').attr('data-price');
+                var amount = _this.find('.goods-sel2 option:selected').attr('data-amount');
+
+                var person_name = _this.find('.goods_input_person').val();
+                var last_price = _this.find('.history_price').val();
+
+                var price_unit = _this.find('.price_unit').val();
+                var goods_amount = _this.find('.goods_amount').val();
+                var goods_tips = _this.find('.goods_tips').val();
+
+                var one_price = _this.find('.one-form-price').val();
+                 
+                sendOneForm(_this,product_name,company,count,price,amount,person_name,last_price,price_unit,goods_amount,goods_tips,one_price);
+            })
+            // 输入框内容改变同步出现搜索结果
+            $('.goods_input').bind('input propertychange', function() {
+                var text = $(this).val();
+                var url = $(this).attr('data-url');
+                var _this = $(this).parent().find('search-ul');
+                getSearchLi(url,text,_this);
+            });
+            //  点击搜索结果同步改变搜索框的名字
+            $('.search-ul').on('click','li',function(){
+                var name = $(this).text();
+                $(this).parent().parent().find('.goods_input').val(name);
+            });
+            //点击搜索之后   (同步出现select框附上返回值数量，单价，量)
+            $('.sale_form_box').on('click','.search_goods',function(){
+                var name = $(this).parent().find('.goods_input').val();
+                var url = $(this).attr('data-url');
+                var _this = $(this);
+                getSearchAns(url,name,_this);
+            })
+        })
+        //点击搜索ajax
+       function getSearchAns(url,name,_this){
+            $.ajax({
+                url:url,
+                type:'post',
+                data:{
+                    'name':name
+                },
+                success:function(data){
+                    _this.parent().parent().find('.goods-sel2 option').remove();
+                    var amount, count, price,company, opt;
+                    for(var i = 0;i<data.data.db.length;i++){
+                                amount = data.data.db[i].shuliang,
+                                count = data.data.db[i].count,
+                                price = data.data.db[i].danjia,
+                                company = data.data.db[i].company;
+                        opt += '<option data-amount="'+amount+'" data-count="'+count+'" data-price="'+price+'" data-copany="'+company+'">¥'+price+'（'+count+'折）/'+company+'（库存：'+amount+'）</option>';
+                    }
+                    _this.parent().parent().find('.goods-sel2').append(opt);
+                    _this.parent().find('.history_price').val(data.data.db.last_price);
+                }
+            })
+       }
+        //输入产生搜索结果
+       function getSearchLi(url,text,_this){
+            $.ajax({
+                url:url,
+                type:'post',
+                data:{
+                    'keyword':text
+                },
+                success:function(data){
+                    _this.find('li').remove();
+                    var li = '';
+                    for(var i = 0;i<data.data.db.length;i++){
+                        var name = data.data.db[i].name;
+                        li += '<li>'+name+'</li>'
+                    }
+                    _this.append(li);
+                }
+            })
+        }
+
+
+        //采购价select改变获取值以及 name名字发送 返回供应商仓库地址分类名
+        $('.sale_form_box').on('change','.goods-sel2',function(){
+            var company = $(this).find('option:selected').attr('data-company');
+            var count = $(this).find('option:selected').attr('data-count');
+            var price = $(this).find('option:selected').attr('data-price');
+            var amount = $(this).find('option:selected').attr('data-amount');
+            var name = $(this).parent().parent().find('.goods_input_product').val();
+            var _this = $(this);
+            $.ajax({
+                url:'/index.php/admin/Sale/sel',
+                data:{
+                    'company':company,
+                    'shuliang':amount,
+                    'count':count,
+                    'danjia':price,
+                    'name':name
+                },
+                type:'post',
+                success:function(data){
+                    var name1 = data.data.db.name1;
+                    var name2 = data.data.db.name2;
+                    var name3 = data.data.db.name3;
+                    _this.parent().parent().find('.goods-type1').val(name1);
+                    _this.parent().parent().find('.goods-type2').val(name2);
+                    _this.parent().parent().find('.goods-type3').val(name3);
+                }
+            })
+        })
+
+        //生成一个表单数据
+        function sendOneForm(_this,product_name,company,count,price,amount,person_name,last_price,price_unit,goods_amount,goods_tips,one_price){
+            $.ajax({
+                url:'',
+                type:'post',
+                data:{
+                    'orderNum':orderNum,
+                    'time':orderTime,
+                    'yunfei':orderTax,
+                    'product_name':product_name,
+                    'company':company,
+                    'count':count,
+                    'price':price,
+                    'amount':amount,
+                    'person_name':person_name,
+                    'last_price':last_price,
+                    'price_unit':price_unit,
+                    'goods_amount':goods_amount,
+                    'goods_tips':goods_tips,
+                    'one_price':one_price
+                },
+                success:function(data){
+                    var price = data.data.db.price;
+                    _this.find('.one-form-price').val(price);
+                }
+            })
+        }
+
+        //新的表单goods_list
+        function goods_list(){
+            var goods_list = '';
+             goods_list = '<div class="sale_form">'+                             
+                                '<div class="inputBox">'+
+                                    '<label class="light" style="text-align:left;;">产品名：</label>'+
+                                    '<input class="w200 goods_input goods_input_product" data-url="/index.php/admin/Purchase/ajax_sosuo" type="text" name="name" placeholder="请输入产品名">'+
+                                    '<input class="blue-btn search_goods" data-url="/index.php/admin/Sale/add" style="margin-top:2px;" type="button" value="搜索">'+
+                                    '<ul class="search-ul">'+
+                                    '</ul>'+
+                                '</div>'+
+                                '<div class="inputBox">'+
+                                    '<label>采购价/单位/库存：</label>'+
+                                    '<select class="goods-sel2 w500" name="company">'+
+                                    '</select>'+
+                                '</div>'+
+                                '<div class="inputBox">'+
+                                    '<label class="light" style="text-align:left;;">供应商：</label>'+
+                                    '<input type="text" class="borderNone goods-type1" readonly="readonly" name="supplier"  value="">'+
+                                '</div>'+
+                                '<div class="inputBox">'+
+                                    '<label class="light" style="text-align:left;;">仓库地址：</label>'+
+                                    '<input type="text" class="borderNone goods-type2" readonly="readonly" name="address"   value="">'+
+                                '</div>'+
+                                '<div class="inputBox">'+
+                                    '<label class="light" style="text-align:left;;">分类名：</label>'+
+                                    '<input type="text" class="borderNone goods-type3" readonly="readonly" name="series_name"   value="">'+
+                                '</div>'+
+                                '<div class="inputBox">'+
+                                   '<label class="light" style="text-align:left;;">姓名：</label>'+
+                                    '<input class="w200 goods_input goods_input_person" data-url="" type="text" name="user_name" placeholder="请输入姓名">'+
+                                    '<input class="fl blue-btn search_goods" data-url="" style="margin-top:2px;" type="button" value="搜索">'+
+                                    '<label>历史出售价格：</label>'+
+                                    '<input class="w200 borderNone history_price" type="text" name="history_price" id="" readonly="readonly" value="">'+
+                                    '<ul class="search-ul search-ul2">'+
+                                    '</ul>'+
+                                '</div>'+
+                                '<div class="inputBox">'+
+                                    '<label class="light" style="text-align:left;;">原价单位：</label>'+
+                                    '<input class="w200 price_unit" type="text" name="danjia" placeholder="">'+
+                                '</div>'+
+                                '<div class="inputBox">'+
+                                    '<label class="light" style="text-align:left;;">数量：</label>'+
+                                    '<input class="w200 goods_amount" type="text" name="shuliang" placeholder="">'+
+                                '</div>'+
+                                '<div class="inputBox">'+
+                                    '<label class="light">备注：</label>'+
+                                    '<textarea class="w500 goods_tips" name="content" id="" style="width:80%" placeholder="请输入备注"></textarea>'+
+                                '</div>'         +
+                                '<div class="inputBox">'+
+                                    '<label></label>'+
+                                    '<input class="blue-btn send-form" type="button" value="生成">'+
+                                    '<input class="red-btn delete-form" type="button" value="删除">'+
+                                '</div>'+
+                                '<div class="inputBox">'+
+                                    '<label>小计：</label>'+
+                                    '<input class="one-form-price w200 borderNone" readonly="readonly" value="" type="text" name="part_price" id="part_price">'+
+                                '</div>'+
+                                '</div>'+
+                            '</div>'
+                            $('.sale_form_box').append(goods_list);
+        }
+    </script>

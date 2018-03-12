@@ -1,0 +1,42 @@
+
+    <form action=""  method="post"  id="ajax_form_submit">  
+            <div class="addContent">
+               <div class="inputBox">
+                    <label>权限组名：</label>
+                   <input class="w300" type="text" name="name" placeholder="请输入权限组名">
+               </div>
+               <div class="inputBox">
+                   <label></label>
+                  <input class="fl hide" style="margin-top:5px;" type="radio" name="power_on" id="power_on">
+                  <label style="width:auto;margin-right:12px;" class="fl radioStyle" for="power_on">授权</label>
+
+                  <input class="fl hide" style="margin-top:5px;" type="radio" name="power_off" id="power_off">
+                  <label class="fl radioStyle" style="width:auto" for="power_off">禁用</label>
+               </div>
+               <div class="inputBox">
+                   <label>备注：</label>
+                   <textarea name="remark" id="" class="w300"></textarea>
+               </div>
+            </div>      
+            <div class="addConfirm inputBox cle">
+                <input class="btn fr confirmBtn" type="submit" value="确定"> 
+            </div>
+        
+        </form>
+        
+        <script language="javascript">
+            $(function() {
+              
+                $(".confirmBtn").click(function() {
+                    ajaxpost('ajax_form_submit', '', '', 'onerror') ;
+                })
+                
+                $('input[type=radio').each(function(i){
+                    $(this).click(function(){
+                        $(this).siblings().removeAttr("checked");
+                    })
+                })
+    
+            }) 
+        </script>
+        

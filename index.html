@@ -1,0 +1,128 @@
+<!-- 头部提取开始 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>神居后台管理</title>
+    <!-- <base href="/Public/Admin/"> -->
+    <link rel="stylesheet" type="text/css" href="./css/common/swiper-3.3.1.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/bootstrapStyle.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./js/common/dialog.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script type="text/javascript" src="./js/lib/jq.1.11.1.min.js"></script>
+    <script type="text/javascript" src="./js/common/swiper-3.3.1.jquery.min.js"></script>
+    <script type="text/javascript" src="./js/app/style.js"></script>
+    <script>var SITEURL="http://www.fangqt.com";</script>
+    <script type="text/javascript" src="./js/common/dialog.js" id="dialog_js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/common/jquery-ui.js"></script>
+    <script type="text/javascript" src="./js/common/common.js"></script>
+</head>
+<body style="overflow-y:hidden;">
+    <!-- 头部导航开始 -->
+    <header class="cle">
+       <div class="header_logo fl">
+            <a href="index.html"><img class="fl" src="img/logo.png" alt=""></a>
+            <p class="light fl">平台管理系统后台</p>  
+       </div>
+       <div class="header_info fr">
+            <div class="header_name fl">
+                <p> 用户名：<span>admin</span></p>    
+            </div>
+           
+            <div class="header_position fl">
+              当前权限组：<span>管理员</span>        
+            </div>
+            <div class="header_quit fl">
+                <a href="javascript:void(0)">
+                    <img class="fl" src="img/shutdown.png" alt="">
+                    <span class="fl">【退出登录】</span>
+                </a>
+            </div>
+       </div>
+    </header>
+    <!-- 头部导航结束 -->
+    <section class="cle">
+    <!-- 左侧菜单开始 -->
+    <nav class="fl">
+           <div class="nav">
+               <p> <span>管理控制台</span> </p>
+               <ul class="light hide">
+                   <li data-src="site_select.html" style="background-image:url(icons/1.png)"><a href="javascript:void(0)" ><span>站点设置</span></a></li>
+                   <li data-src="list_select.html" style="background-image:url(icons/2.png)"><a href="javascript:void(0)" ><span>菜单管理</span></a></li>
+                   <li data-src="group_select.html" style="background-image:url(icons/3.png)"><a href="javascript:void(0)" ><span>分组管理</span></a></li>
+                   <li data-src="module_select.html" style="background-image:url(icons/4.png)"><a href="javascript:void(0)" ><span>模型管理</span></a></li>
+               </ul>
+           </div>
+           <div class="nav">
+               <p> <span>会员中心</span> </p>
+               <ul class="light hide">
+                   <li data-src="member_select.html" style="background-image:url(icons/6.png)"><a href="javascript:void(0)"><span>会员管理</span></a></li>
+                   <li data-src="recharge_select.html" style="background-image:url(icons/7.png)"><a href="javascript:void(0)"><span>充值记录</span></a></li>
+                   <li data-src="cost_select.html" style="background-image:url(icons/5.png)"><a href="javascript:void(0)"><span>消费记录</span></a></li>
+               </ul>
+           </div>
+           <div class="nav">
+               <p> <span>作品管理</span> </p>
+               <ul class="light hide">
+                   <li data-src="classify_select.html" style=""><a href="javascript:void(0)"><span>分类管理</span></a></li>
+                   <li data-src="works_select.html" style=""><a href="javascript:void(0)"><span>作品管理</span></a></li>
+                   <li data-src="rank_select.html" style=""><a href="javascript:void(0)"><span>排行统计</span></a></li>
+               </ul>
+           </div>
+            <div class="nav">
+               <p> <span>评论管理</span> </p>
+               <ul class="light hide">
+                   <li data-src="sensitive_select.html"><a href="javascript:void(0)"><span>敏感词设置</span></a></li>
+                   <li data-src="message_select.html"><a href="javascript:void(0)"><span>留言管理</span></a></li>
+                   <li data-src="suggest_select.html"><a href="javascript:void(0)"><span>意见反馈</span></a></li>
+               </ul>
+            </div>
+            <div class="nav">
+                <p> <span>新闻管理</span> </p>
+                <ul class="light hide">
+                    <li data-src="help_select.html"><a href="javascript:void(0)"><span>使用帮助</span></a></li>
+                    <li data-src="notice_select.html"><a href="javascript:void(0)"><span>系统公告</span></a></li>
+                </ul>
+            </div>
+            <div class="nav">
+                <p> <span>账户管理</span> </p>
+                <ul class="light hide">
+                    <li data-src="password_select.html"><a href="javascript:void(0)"><span>密码修改</span></a></li>
+                    <li data-src="permission_select.html"><a href="javascript:void(0)"><span>权限组设置</span></a></li>
+                    <li data-src="admin_select.html"><a href="javascript:void(0)"><span>管理员设置</span></a></li>
+                </ul>
+            </div>
+             <div class="nav">
+                <p> <span>模板</span> </p>
+                <ul class="light hide">
+                    <li data-src="text_select.html"><a href="javascript:void(0)"><span>模板</span></a></li>
+                </ul>
+            </div>
+            <div class="nav">
+                <p> <span>Sale</span> </p>
+                <ul class="light hide">
+                    <li data-src="Sale_add.html"><a href="javascript:void(0)"><span>sale</span></a></li>
+                </ul>
+            </div>
+    </nav>
+    <!-- 左侧菜单结束 -->
+<!-- 头部提取结束 -->
+    <iframe id="iframe_con"  scrolling="auto" class="iframe_con" src="home_index.html" frameborder="0" scrolling='no'></iframe>
+    </section>
+    <div class="thumbBox hide" id="thumbBox">
+        <img src="" alt="" />
+        <div class="close"></div>
+    </div>
+    <script type="text/javascript">
+        var wH =$(window).height();   
+        $("#iframe_con").height(wH-80);
+        $(window).resize(function(){
+            var wH =$(window).height();   
+            console.log(wH);
+            $("#iframe_con").height(wH-80);
+            
+        })
+    </script>
+</body>
+</html>

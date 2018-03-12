@@ -1,0 +1,53 @@
+<style>
+
+.inputBox>label{
+    width: 64px;
+}
+</style>
+    <form action=""  method="post"  id="ajax_form_submit">  
+            <div class="addContent">
+               <div class="inputBox">
+                   <label class="light" style="text-align:left;;">标题：</label>
+                   <input type="text" name="name" placeholder="请输入标题" style="width:80%">
+               </div>
+               <div class="inputBox">
+                    <label class="light">发送目标：</label>
+                    <input class="fl hide" type="radio" name="member_name" id="new_module_name1" value="">
+                    <label class="fl center radioStyle" for="new_module_name1">全部</label>   
+
+                    <input class="fl hide" type="radio" name="member_name" id="new_module_name2" value="">
+                    <label class="fl center radioStyle" for="new_module_name2">普通会员</label>   
+                    
+                    <input class="fl hide" type="radio" name="member_name" id="new_module_name3" value="">
+                    <label class="fl center radioStyle" for="new_module_name3">充值会员</label>   
+               </div>
+               <div class="inputBox">
+                   <label class="light">排序：</label>
+                   <input class="fl w100" type="text" name="order" value="100">
+               </div>
+               <div class="inputBox">
+                    <label class="light">发布日期：</label>
+                    <input class="fl w100" type="text" name="order" value="2017-10-20">
+               </div>
+               <div class="inputBox">
+                   <label class="light">发布内容：</label>
+                   <textarea name="content" id="" style="width:80%" placeholder="请输入新闻内容"></textarea>
+               </div>
+            </div>      
+            <div class="addConfirm inputBox cle">
+                <input class="btn fr confirmBtn" type="submit" value="确定"> 
+            </div>
+        
+        </form>
+        
+        <script language="javascript">
+            $(function() {
+              
+                $(".confirmBtn").click(function() {
+                    ajaxpost('ajax_form_submit', '', '', 'onerror') ;
+                })
+              
+    
+            }) 
+        </script>
+        

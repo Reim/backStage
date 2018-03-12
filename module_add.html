@@ -1,0 +1,35 @@
+
+    <form action=""  method="post"  id="ajax_form_submit">  
+        <div class="addContent">
+           <div class="inputBox">
+               <input class="w500" type="text" name="name" placeholder="请输入名称">
+           </div>
+           <div class="inputBox">
+               <label class="light" style="text-align:left;;">数据表名：</label>
+               <p class="light" style="font-size:14px;margin-top:3px;">123123</p>
+           </div>
+           <div class="inputBox">
+                <input class="fl" type="radio" name="new_module_name" id="new_module_name1" value="">
+                <label class="fl center" for="new_module_name1">详细显示</label>   
+                <input class="fl" type="radio" name="new_module_name" id="new_module_name2" value="">
+                <label class="fl center" for="new_module_name2">列表显示</label>   
+           </div>
+        </div>      
+        <div class="addConfirm inputBox cle">
+            <input class="btn fr" class="confirmBtn" type="submit" value="确定"> 
+        </div>
+    
+    </form>
+    
+    <script language="javascript">
+        $(function() {
+          
+            $(".confirmBtn").click(function() {
+        
+                ajaxpost('ajax_form_submit', '', '', 'onerror') ;
+            })
+          
+
+        }) 
+    </script>
+    

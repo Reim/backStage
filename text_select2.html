@@ -1,0 +1,129 @@
+<!-- 头部提取开始 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>神居后台管理</title>
+    <link rel="stylesheet" type="text/css" href="./css/common/swiper-3.3.1.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/bootstrapStyle.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./js/common/dialog.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+
+    <script type="text/javascript" src="./js/lib/jq.1.11.1.min.js"></script>
+    <script type="text/javascript" src="./js/common/swiper-3.3.1.jquery.min.js"></script>
+    <script type="text/javascript" src="./js/app/style.js"></script>
+    <!-- dialog弹出框 -->
+    <script type="text/javascript" src="./js/common/dialog.js" id="dialog_js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/common/jquery-ui.js"></script>
+    <script type="text/javascript" src="./js/common/common.js"></script>
+
+      <!-- 日期组件 -->
+    <link rel="stylesheet" type="text/css" href="./css/lib/jquery-calendar.css" />     
+    <script type="text/javascript" src="./js/lib/jquery-calendar.js"></script> 
+
+
+</head>
+<body>
+<!-- 头部提取结束 -->
+    <!-- 顶部提示tips -->
+    <div class="tips fl">
+        <img class="fl" src="img/warning.png" alt="">
+        <p class="fl light">注：如职位变动已申请并在流程中的款项将被注销，需重新提交请款，重新走流程。申请成功或被拒绝的款项会在财务报表中呈现。</p>
+    </div>
+    <!-- 区域管理中间模块 -->
+    <div class="con_con content fl">
+        <div class="item">
+            <div class="item_con">
+                <div class="title">
+                    <!-- 模板名字 -->
+                    <p class="fl"> <span>模板管理</span> </p>
+                    <a class="red-btn fr" href="">新增</a>                    
+                </div>
+                <!-- 搜索箱 -->
+                <div class="searchBox">
+                    <form action="" method="post">
+                        <input class="w100" type="text" name="id_" placeholder="请输入...">
+                        <input class="w300" type="text" name="keyword_" placeholder="请输入...">
+                        <input class="w100" maxlength="10" onfocus="$(this).calendar()" readonly type="text" name="dateFrom_member" placeholder="注册日期始">
+                        <span>至</span>
+                        <input class="w100" maxlength="10" onfocus="$(this).calendar()" readonly type="text" name="dateTo_member" placeholder="注册日期终">
+                        <input class="blue-btn" type="submit" value="搜索" >
+                    </form>
+                </div>
+                <div class="info">
+                    <table class="table_table" cellspacing="0" >
+                            <th>会员2</th>
+                            <th>微信昵称2</th>
+                            <th>注册日2期</th>
+                            <th>余额</th>
+                            <th>禁言状态</th>
+                            <th>操作</th>
+                            <tr style="position:relative;width:100%;display:inline-table;">
+                                <td>1</td>
+                                <td> <input type="text" name="order" > </td>
+                                <td>2017-11-18</td>
+                                <td>1</td>
+                                <td>禁</td>
+                                <td>
+                                    <a class="edit blue-btn" href="javascript:void(0)" data-url="text_add.html">编辑</a>
+                                    <a class="green-btn" href="text_add2.html">字段管理</a>
+                                    <a class="red-btn" href="">添加</a>
+                                    <a class="yellow-btn" href="">授权</a>
+                                    <a class="delete" href="javascript:void(0)" data-url="">删除</a>
+                                </td>
+                                <td style="position:absolute;left:0;top:40px;width:100%;">
+                                    <table>
+                                        <tr>
+                                            <td>11111111</td>
+                                            <td>111111111 </td>
+                                            <td>1111111111</td>
+                                            <td>11111111111</td>
+                                            <td>11111111111111111</td>
+                                            <td>111111111111</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>  
+                    <div class="page">
+                        <!-- {$.page} -->                                
+                        <a class="prev" href="">上一页</a>
+                        <a href="">1</a>
+                        <a class="current" href="">2</a>
+                        <a href="">3</a>
+                        <a href="">4</a>
+                        <a class="next" href="">下一页</a>
+                    </div>
+                    <div class="inputBox">
+                        <!-- <label></label> -->
+                        <input class="refresh darkBlue-btn" type="submit" value="确认提交">
+                        <a class="add red-btn" href="javascript:void(0)">新增</a>
+                    </div> 
+                </div>
+            </div>   
+        </div>
+    </div>     
+    <!-- 如果需要弹出框 -->
+    <div id="append_parent"></div>
+    <div id="ajaxwaitid"></div>    
+
+    <script type="text/javascript">
+        $(function(){
+            /**编辑**/
+            $(".edit").click(function() {
+                var dataUrl =$(this).attr('data-url');
+                  ajax_form('gg', '会员管理',dataUrl);
+            })
+            /**删除**/
+            $(".delete").click(function() {
+                var dataUrl =$(this).attr('data-url');
+                ajax_get_confirm('是否确定删除',dataUrl);
+            })
+            /**新增**/
+            $('.add').click(function(){
+                var dataUrl =$(this).attr('data-url');
+                ajax_form('gg', '新增管理',dataUrl);
+            })
+        })
+    </script>

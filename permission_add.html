@@ -1,0 +1,131 @@
+<!-- 头部提取开始 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>神居后台管理</title>
+    <link rel="stylesheet" type="text/css" href="./css/common/swiper-3.3.1.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/bootstrapStyle.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./js/common/dialog.css" type="text/css">        
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script type="text/javascript" src="./js/lib/jq.1.11.1.min.js"></script>
+    <script type="text/javascript" src="./js/common/swiper-3.3.1.jquery.min.js"></script>
+    <script type="text/javascript" src="./js/app/style.js"></script>
+    <script type="text/javascript" src="./js/common/dialog.js" id="dialog_js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/common/jquery-ui.js"></script>
+    <script type="text/javascript" src="./js/common/common.js"></script>
+</head>
+<body>
+<!-- 头部提取结束 -->
+    <!-- 顶部提示tips -->
+    <div class="tips fl">
+        <img class="fl" src="img/warning.png" alt="">
+        <p class="fl light">注：如职位变动已申请并在流程中的款项将被注销，需重新提交请款，重新走流程。申请成功或被拒绝的款项会在财务报表中呈现。</p>
+    </div>
+    <!-- 区域管理中间模块 -->
+    <div class="con_con content fl">
+        <div class="item">
+            <div class="item_con">
+                <div class="title">
+                    <p> <span>权限组设置</span> </p>
+                </div>
+                <div class="info permission_info">
+                    <form action="" method="post" class="cle">
+                        <div class="inputBox">
+                            <label>权限组名：</label>
+                            <input class="w300" type="text" placeholder="请输入权限组名" name="name">
+                        </div>    
+                        <div class="inputBox">
+                            <label>选择职务权限：</label>
+                            <input class=" checkInputAll hide" type="checkbox" name="permit_all" id="permit_all">
+                            <label class="checkboxStyle checkboxAll" for="permit_all">全选</label>
+                        </div> 
+                        <!-- 第一层 -->
+                        <div class="inputBox permit_ul">
+                            <label></label>
+                            <div class="inputBox inputBox_father">
+                                <label class="bold">管理控制台：</label>
+                                <input class="hide" type="checkbox" name="permit_all" >
+                                <label class="checkboxStyle" for="">全选</label>
+                            </div>
+                            <div class="inputBox cle">
+                                <label></label>
+                                <!-- 第二层 -->
+                                <div class="permit_li fl">
+                                    <input class="hide" type="checkbox" name="permit_all">
+                                    <label class="checkboxStyle" for="">区域管理</label>
+                                </div>
+                                <!-- 第二层结束 -->
+                                <div class="permit_li fl">
+                                    <input class="hide" type="checkbox" name="permit_all" >
+                                    <label class="checkboxStyle" for="">职务管理</label>
+                                </div>
+                                <div class="permit_li fl">
+                                    <input class="hide" type="checkbox" name="permit_all" >
+                                    <label class="checkboxStyle" for="">公司管理</label>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="inputBox permit_ul">
+                                <label></label>
+                                <div class="inputBox inputBox_father">
+                                    <label class="bold">管理控制台：</label>
+                                    <input class="hide" type="checkbox" name="permit_all" >
+                                    <label class="checkboxStyle" for="">全选</label>
+                                </div>
+                                <div class="inputBox cle">
+                                    <label></label>
+                                    <!-- 第二层 -->
+                                    <div class="permit_li fl">
+                                        <input class="hide" type="checkbox" name="permit_all">
+                                        <label class="checkboxStyle" for="">区域管理</label>
+                                    </div>
+                                    <!-- 第二层结束 -->
+                                    <div class="permit_li fl">
+                                        <input class="hide" type="checkbox" name="permit_all" >
+                                        <label class="checkboxStyle" for="">职务管理</label>
+                                    </div>
+                                    <div class="permit_li fl">
+                                        <input class="hide" type="checkbox" name="permit_all" >
+                                        <label class="checkboxStyle" for="">公司管理</label>
+                                    </div>
+                                </div>
+                            </div> 
+                        <!-- 第一层结束 -->
+                        <div class="inputBox">
+                            <input type="button" value="确认" class="confirmBtn" data-url="">
+                        </div>                                             
+                    </form>
+                </div>
+            </div>   
+        </div>
+    </div>     
+    <script type="text/javascript">
+        $(function(){
+            //lable for绑定
+            $('.permit_ul').each(function(i){
+                $(this).find('.inputBox_father').find('input[type=checkbox]').attr('id','permitul'+i);
+                $(this).find('.inputBox_father').find('.checkboxStyle').attr('for','permitul'+i);      
+            })
+            $('.permit_li').each(function(k){
+                $(this).find('input[type=checkbox]').attr('id','permitli'+k);
+                $(this).find('.checkboxStyle').attr('for','permitli'+k);
+            })
+            // 全选
+
+            $('.permit_ul .inputBox_father').find('input[type=checkbox]').click(function(){
+                var inp = $(this).parent().parent().find('input');
+                var inpLen = inp.length;
+                for(var i =0;i<inpLen;i++){
+                    $(inp).prop('checked',$(inp).prop('checked'));
+                }
+            })
+            $('#permit_all').click(function(){
+                var inp = $(".permission_info input[type='checkbox']");
+                for(var i =0;i<inp.length;i++){
+                   $(inp).prop('checked',$(inp).prop('checked'));
+                }
+            })
+        })
+    </script>
